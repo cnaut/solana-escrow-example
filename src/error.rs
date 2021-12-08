@@ -9,6 +9,13 @@ pub enum EscrowError {
     InvalidInstruction,
 }
 
+#[derive(Error, Debug, Copy, Clone)]
+pub enum EscrowError {
+    /// Not Rent Exempt
+    #[error("Not Rent Exempt")]
+    NotRentExempt,
+}
+
 impl From<EscrowError> for ProgramError {
   fn from(e: EscrowError) -> Self {
       ProgramError::Custom(e as u32)
