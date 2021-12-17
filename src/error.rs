@@ -7,10 +7,6 @@ pub enum EscrowError {
     /// Invalid instruction
     #[error("Invalid Instruction")]
     InvalidInstruction,
-}
-
-#[derive(Error, Debug, Copy, Clone)]
-pub enum EscrowError {
     /// Not Rent Exempt
     #[error("Not Rent Exempt")]
     NotRentExempt,

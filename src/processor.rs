@@ -61,9 +61,9 @@ impl Processor {
     escrow_info.initializer_token_to_receive_account_pubkey = *token_to_receive_account.key;
     escrow_info.expected_amount = amount;
 
-    Escrow::pack(escrow_info, &mut escrow_account.try_borrow_mut_data()?)?
+    Escrow::pack(escrow_info, &mut escrow_account.try_borrow_mut_data()?)?;
     let (pda, _bump_seed) = Pubkey::find_program_address(&[b"escrow"], program_id);
-    
+
     let token_program = next_account_info(account_info_iter)?;
     let owner_change_ix = spl_token::instruction::set_authority(
         token_program.key,
